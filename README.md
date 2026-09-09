@@ -28,6 +28,5 @@ https://developer.adobe.com/commerce/pwa-studio/
     1. Em scripts->watch, modificar para: "export NODE_OPTIONS=--openssl-legacy-provider && webpack-dev-server --progress --color --env.mode development"
 6. No arquivo .env gerado, modificar as seguintes configurações
     1. MAGENTO_BACKEND_EDITION=MOS
-    2. STORE_VIEW_CODE=food
 7. Rodar o comando ``yarn watch``
     
