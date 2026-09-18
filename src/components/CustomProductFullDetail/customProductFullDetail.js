@@ -38,7 +38,7 @@ const CustomProductFullDetail = ({
                 <span>Home</span>/<span>Shop</span>/<span>Starters</span>/
                 <span>Straciella</span>
             </button>
-            <div className='lg_flex items-center py-10 justify-center gap-10'>
+            <div className="lg_flex items-center py-10 justify-center gap-10">
                 {imageUrl && (
                     <img
                         src={imageUrl}
@@ -57,47 +57,45 @@ const CustomProductFullDetail = ({
                                 value={productDetails.price.value}
                             />
                         </div>
-                    
-                    {options}
-                    <div className="flex mb-5 items-center font-extrabold gap-5 py-5">
-                        <button
-                            className="bg-yellow-400 w-6 h-6 flex items-center justify-center rounded-full"
-                            onClick={handleClickSub}
-                        >
-                            -
-                        </button>
-                        <p>{increment}</p>
-                        <button
-                            className="bg-yellow-400 w-6 h-6 flex items-center justify-center rounded-full"
-                            onClick={handleClickAdd}
-                        >
-                            +
-                        </button>
-                        <button className="bg-yellow-400 px-6 py-3 flex items-center gap-3">
-                            <IoBagHandleOutline size={22} /> Add to Cart
-                        </button>
+
+                        {options}
+                        <div className="flex mb-5 items-center font-extrabold gap-5 py-5">
+                            <button
+                                className="bg-yellow-400 w-6 h-6 flex items-center justify-center rounded-full"
+                                onClick={handleClickSub}
+                            >
+                                -
+                            </button>
+                            <p>{increment}</p>
+                            <button
+                                className="bg-yellow-400 w-6 h-6 flex items-center justify-center rounded-full"
+                                onClick={handleClickAdd}
+                            >
+                                +
+                            </button>
+                            <button className="bg-yellow-400 px-6 py-3 flex items-center gap-3">
+                                <IoBagHandleOutline size={22} /> Add to Cart
+                            </button>
                         </div>
                     </div>
-                    </div>
-                    </div>
-                    <div className="mb-20 max-w-[1024px] font-extrabold lg_flex gap-10 text-gray-500 text-start">
-                        <div>
-                            <h3 className="font-extrabold text-indigo-950 text-lg">
-                                Description
-                            </h3>
-                            <RichContent html={productDetails.description} />
-                        </div>
-                        <div>
-                            <h3 className="font-extrabold text-indigo-950 text-lg">
-                                Details
-                            </h3>
-                            <CustomAttributes
-                                customAttributes={customAttributesDetails.list}
-                            />
-                        </div>
-                    </div>
-                
-            
+                </div>
+            </div>
+            <div className="mb-20 max-w-[1024px] font-extrabold lg_flex gap-10 text-gray-500 text-start">
+                <div>
+                    <h3 className="font-extrabold text-indigo-950 text-lg">
+                        Description
+                    </h3>
+                    <RichContent html={productDetails.description} />
+                </div>
+                <div>
+                    <h3 className="font-extrabold text-indigo-950 text-lg">
+                        Details
+                    </h3>
+                    <CustomAttributes
+                        customAttributes={customAttributesDetails.list}
+                    />
+                </div>
+            </div>
         </section>
     );
 };

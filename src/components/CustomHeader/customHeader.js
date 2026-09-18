@@ -12,7 +12,11 @@ const CustomHeader = () => {
             <div className=" flex justify-center">
                 <header className=" w-full max-w-[1224px] bg-white/60 fixed backdrop-blur-md z-50 py-6 flex items-center justify-between px-10">
                     <div>
-                        <img src={logo} alt="Logo" className="h-8 cursor-pointer" />
+                        <img
+                            src={logo}
+                            alt="Logo"
+                            className="h-8 cursor-pointer"
+                        />
                     </div>
                     <nav className="hidden lg_block">
                         <ul className="flex w-full items-center justify-between gap-10 text-sm font-semibold text-indigo-950">
