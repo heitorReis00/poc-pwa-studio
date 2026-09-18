@@ -12,10 +12,16 @@ const config = {
     // Note that the Tailwind's `jit` mode doesn't actually use PurgeCSS.
     content: {
         files: [
-            './node_modules/@magento/venia-ui/lib/**/*.module.css',
-            '../venia-ui/lib/**/*.module.css',
-            './src/**/*.module.css',
-            './template.html'
+             './node_modules/@magento/venia-ui/lib/**/*.module.css',
+        '../venia-ui/lib/**/*.module.css',
+
+        // CSS Modules do projeto
+        './src/**/*.module.css',
+
+        // Componentes React do projeto
+        './src/**/*.{js,jsx,ts,tsx}',
+
+        './template.html'
         ],
         // Extract Tailwind classnames from source files.
         // Our default matcher only matches targets of CSS Modules' `composes`,
