@@ -1,3 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+      font-family: "Rubik", sans-serif !important;
+}
+
+[data-cy="MegaMenu-MegaMenuItem-link"] {
+    color: #1e1b4b;
+    transition: color 0.2s ease, text-decoration-color 0.5s ease;
+    text-decoration: none !important;
+}
+
+[data-cy="MegaMenu-MegaMenuItem-link"]:hover,
+[data-cy="MegaMenu-MegaMenuItem-link"]:focus {
+    color: #f59e0b;
+   text-decoration: none !important;
+}
+
+[data-cy="MegaMenu-MegaMenuItem-link"] > span {
+    display: none;
+}
+
+.meu-breadcrumbs a {
+     transition: opacity 0.3s ease;
+    opacity: 0.5;
+    text-decoration: none;
+    padding: 0px;
+}
+
+.meu-breadcrumbs a:hover {
+    opacity: 1;
+}
+
+.meu-breadcrumbs > div,
+.meu-breadcrumbs > div * {
+    padding: 0 !important;
+    height: auto !important;
+}
+ 
+.meu-breadcrumbs > div {
+    margin: 0 !important;
+}
+ 
+.meu-breadcrumbs > div > * {
+    margin: 0 4px !important;
+}
+ 
+.meu-breadcrumbs > div > *:first-child {
+    margin-left: 0 !important;
+}
+ 
+.meu-breadcrumbs > div > *:last-child {
+    margin-right: 0 !important;
+}

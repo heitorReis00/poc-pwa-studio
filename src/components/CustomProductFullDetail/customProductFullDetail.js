@@ -6,13 +6,17 @@ import { useState } from 'react';
 import { IoBagHandleOutline } from 'react-icons/io5';
 import { generateUrl } from '@magento/peregrine/lib/util/imageUtils';
 import CustomAttributes from '@magento/venia-ui/lib/components/ProductFullDetail/CustomAttributes';
+
 const CustomProductFullDetail = ({
     productDetails,
     mediaGalleryEntries,
     options,
+    breadcrumbs,
     customAttributesDetails
 }) => {
     const [increment, setIncrement] = useState(0);
+
+    const [trocar, setTrocar] = useState('B');
 
     const mainImage = mediaGalleryEntries?.[0];
 
@@ -21,7 +25,7 @@ const CustomProductFullDetail = ({
         : null;
 
     function handleClickAdd() {
-        if (increment < 11) {
+        if (increment < 10) {
             setIncrement(increment + 1);
         }
     }
@@ -33,11 +37,14 @@ const CustomProductFullDetail = ({
 
     return (
         <section className=" px-5 text-center w-full flex flex-col items-center gap-5">
-            <h1 className="text-indingo-950 pt-40 font-black text-2xl">Shop</h1>
-            <button className="bg-yellow-400 px-6 py-3 font-extrabold flex gap-3">
-                <span>Home</span>/<span>Shop</span>/<span>Starters</span>/
-                <span>Straciella</span>
-            </button>
+            <div className='py-20 mt-40 px-10 bg-gray-50 w-full flex flex-col justify-between lg_flex-row items-center'>
+                <h1 className="text-indigo-950  font-semibold text-3xl">
+                    Shop
+                </h1>
+                <div className="meu-breadcrumbs bg-yellow-400  items-center justify-center font-semibold py-3 px-6 flex text-center">
+                    {breadcrumbs}
+                </div>
+            </div>
             <div className="lg_flex items-center py-10 justify-center gap-10">
                 {imageUrl && (
                     <img
@@ -47,19 +54,24 @@ const CustomProductFullDetail = ({
                     />
                 )}
                 <div className="text-start w-full flex flex-col gap-5 ">
-                    <div className="bg-gray-100 p-6 w-full lg_min-w-[500px] ">
-                        <h2 className="mb-3 font-extrabold text-indigo-950">
-                            {productDetails.name}
-                        </h2>
-                        <div className="bg-yellow-400 text-center text-xl py-3 font-extrabold">
-                            <Price
-                                currencyCode={productDetails.price.currency}
-                                value={productDetails.price.value}
-                            />
+                    <div className=" p-6 w-full lg_min-w-[500px] ">
+                        <div className="bg-gray-50 flex items-center justify-between">
+                            <h2 className="ml-6 mr-10 font-semibold text-indigo-950">
+                                {productDetails.name}
+                            </h2>
+                            <div className="bg-yellow-400 p-5 text-center text-xl font-semibold">
+                                <Price
+                                    currencyCode={productDetails.price.currency}
+                                    value={productDetails.price.value}
+                                    classes={{
+                                        currency: 'text-sm'
+                                    }}
+                                />
+                            </div>
                         </div>
 
                         {options}
-                        <div className="flex mb-5 items-center font-extrabold gap-5 py-5">
+                        <div className="flex mb-5 items-center font-semibold gap-5 py-5">
                             <button
                                 className="bg-yellow-400 w-6 h-6 flex items-center justify-center rounded-full"
                                 onClick={handleClickSub}
@@ -80,21 +92,48 @@ const CustomProductFullDetail = ({
                     </div>
                 </div>
             </div>
-            <div className="mb-20 max-w-[1024px] font-extrabold lg_flex gap-10 text-gray-500 text-start">
-                <div>
-                    <h3 className="font-extrabold text-indigo-950 text-lg">
-                        Description
-                    </h3>
-                    <RichContent html={productDetails.description} />
-                </div>
-                <div>
-                    <h3 className="font-extrabold text-indigo-950 text-lg">
-                        Details
-                    </h3>
-                    <CustomAttributes
-                        customAttributes={customAttributesDetails.list}
-                    />
-                </div>
+            <div className="flex flex-col w-full gap-2 lg_gap-5 lg_flex-row">
+                <button
+                    className={` ${
+                        trocar === 'A'
+                            ? 'bg-yellow-400 text-black'
+                            : 'bg-gray-200  text-gray-400'
+                    } py-3 font-semibold px-6`}
+                    onClick={() => setTrocar('A')}
+                >
+                    Description
+                </button>
+                <button
+                    className={` ${
+                        trocar === 'B'
+                            ? 'bg-yellow-400 text-black'
+                            : 'bg-gray-200 text-gray-400'
+                    } py-3 font-semibold px-6 `}
+                    onClick={() => setTrocar('B')}
+                >
+                    Details
+                </button>
+            </div>
+
+            <div className="mb-20 max-w-[1024px] font-normal lg_flex gap-10 text-gray-400 text-start">
+                {trocar === 'A' && (
+                    <div>
+                        <h3 className="font-semibold text-indigo-950 text-lg">
+                            Description
+                        </h3>
+                        <RichContent html={productDetails.description} />
+                    </div>
+                )}
+                {trocar === 'B' && (
+                    <div>
+                        <h3 className="font-semibold text-indigo-950 text-lg">
+                            Details
+                        </h3>
+                        <CustomAttributes
+                            customAttributes={customAttributesDetails.list}
+                        />
+                    </div>
+                )}
             </div>
         </section>
     );
