@@ -49,7 +49,7 @@ const CustomHeader = () => {
         <Fragment>
             <div className=" bg-white/90 fixed py-3 backdrop-blur-md fixed z-50 w-full">
                 <div className=" flex justify-center">
-                    <header className=" w-full max-w-[1440px] flex items-center justify-between">
+                    <header className=" w-full max-w-[1220px] flex items-center justify-between">
                         <NavTrigger />
 
                         <div>
@@ -77,8 +77,6 @@ const CustomHeader = () => {
                             />
                             <AccountTrigger />
                             <CartTrigger />
-                            
-                            
                         </div>
                     </header>
                 </div>

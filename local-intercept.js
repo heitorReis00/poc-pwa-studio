@@ -43,13 +43,15 @@ const ProductFullDetail = targetables.reactComponent(
 
 const CustomProductFullDetail = ProductFullDetail.addImport(
     `CustomProductFullDetail from ${JSON.stringify(
-        require.resolve('./src/components/CustomProductFullDetail/customProductFullDetail')
+        require.resolve(
+            './src/components/CustomProductFullDetail/customProductFullDetail'
+        )
     )}`
 );
 
 ProductFullDetail.replaceJSX(
     '<Fragment>',
-    `<${CustomProductFullDetail} product={product} productDetails={productDetails} mediaGalleryEntries={mediaGalleryEntries} options={options} cartActionContent={cartActionContent} customAttributesDetails={customAttributesDetails} breadcrumbs={breadcrumbs} />`
+    `<${CustomProductFullDetail} productDetails={productDetails} mediaGalleryEntries={mediaGalleryEntries} options={options} breadcrumbs={breadcrumbs} handleAddToCart={handleAddToCart} isAddToCartDisabled={isAddToCartDisabled} errors={errors} />`
 );
 
 }
