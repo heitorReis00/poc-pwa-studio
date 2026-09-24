@@ -1,3 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    font-family: "Rubik", sans-serif;
+}
+
+.numero-item {
+    font-family: 'Monoton', cursive !important;
+}
+
+
+[data-cy="MegaMenu-MegaMenuItem-link"] {
+    color: #1e1b4b;
+    transition: color 0.2s ease, text-decoration-color 0.5s ease;
+    text-decoration: none !important;
+}
+
+[data-cy="MegaMenu-MegaMenuItem-link"]:hover,
+[data-cy="MegaMenu-MegaMenuItem-link"]:focus {
+    color: #f59e0b;
+    text-decoration: none !important;
+}
+
+[data-cy="MegaMenu-MegaMenuItem-link"]>span {
+    display: none;
+}
+
+.meu-breadcrumbs a {
+    transition: opacity 0.3s ease;
+    opacity: 0.5;
+    text-decoration: none;
+    padding: 0px;
+}
+
+.meu-breadcrumbs a:hover {
+    opacity: 1;
+}
+
+.meu-breadcrumbs>div,
+.meu-breadcrumbs>div * {
+    padding: 0 !important;
+    height: auto !important;
+}
+
+.meu-breadcrumbs>div {
+    margin: 0 !important;
+}
+
+.meu-breadcrumbs>div>* {
+    margin: 0 4px !important;
+}
+
+.meu-breadcrumbs>div>*:first-child {
+    margin-left: 0 !important;
+}
+
+.meu-breadcrumbs>div>*:last-child {
+    margin-right: 0 !important;
+}
+
+.layout-increment {
+    display: flex;
+}
+
+.layout-increment > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.layout-increment button {
+    @apply bg-yellow-400 !important;
+    border: 0 !important;
+    border-radius: 9999px;
+    width: 3rem;
+    height: 2rem;
+    color: #000;
+    stroke: currentColor;
+    font-size: 12px;
+}
+
+.layout-increment button:hover {
+    opacity: 0.8;
+}
+
+.layout-increment button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.layout-increment input {
+    @apply bg-gray-50 !important;
+    width: 3.5rem;
+    height: 2.25rem;
+    padding: 0;
+    border: 0 !important;
+    border-radius: 0;
+    box-shadow: none !important;
+    text-align: center;
+    font-weight: 500;
+    color: #000;
+}
